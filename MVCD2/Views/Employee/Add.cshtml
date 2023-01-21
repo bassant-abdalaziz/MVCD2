@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Add Employee</h1>
+
+<form action="/Employee/AddEmployeeDb">
+
+
+    <div style="margin-bottom:5px">
+       <label>First Name</label>
+       <input id="FirstName" name="FirstName" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+       <label>Middle Name</label>
+       <input id="MiddleName" name="MiddleName" type="text" />
+    </div>
+
+
+    <div style="margin-bottom:5px">
+        <label>Last Name</label>
+        <input id="LastName" name="LastName" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+        <label>Address</label>
+        <input id="Address" name="Address" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+        <label>Sex</label>
+        <input id="Sex" name="Sex" type="text" />
+     </div>
+
+     <div style="margin-bottom:5px">
+       <label>Birth date</label>
+       <input id="BirthDate" name="BirthDate" type="text" />
+    </div>
+
+
+    <div style="margin-bottom:5px">
+        <label>Salary</label>
+        <input id="Salary" name="Salary" type="number" />
+    </div>
+                    
+    <div style="margin-bottom:5px">
+    <label>SuperVisor</label>
+    <select id="SuperVisor" name="SuperVisor">
+        <option value="">Choose SuperVisor</option>
+        @foreach (var Emp in Model)
+        {
+            <option value="@Emp.SSN">@(@Emp.FirstName + " " + @Emp.MiddleName + " " + @Emp.LastName)</option>
+        }
+    </select>
+    </div>
+
+    <input type="submit" value="Add" />
+</form>

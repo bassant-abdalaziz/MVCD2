@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Edit Employee</h1>
+
+<form action="/Employee/EditEmployeeDb">
+    <input id="SSN" name="SSN" value="@Model.SSN" hidden/>
+
+    <div style="margin-bottom:5px">
+        <label>First Name</label>
+        <input id="FirstName" name="FirstName" value="@Model.FirstName" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+        <label>Middle Name</label>
+        <input id="MiddleName" name="MiddleName" value="@Model.MiddleName" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+        <label>Last Name</label>
+        <input id="LastName" name="LastName" value="@Model.LastName" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+        <label>Address</label>
+        <input id="Address" name="Address" value="@Model.Address"  type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+       <label>Sex</label>
+       <input id="Sex" name="Sex" value="@Model.Sex" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+       <label>Birth date</label>
+       <input id="BirthDate" name="BirthDate" value="@Model.BirthDate" type="text" />
+    </div>
+
+    <div style="margin-bottom:5px">
+       <label>Salary</label>
+       <input id="Salary" name="Salary" value="@Model.Salary"  type="number" />
+    </div>
+
+    <label>SuperVisor</label>
+    <select id="SuperVisor" name="SuperVisor">
+        @foreach (var emp in ViewBag.emp)
+        {
+            @if (emp.SSN == Model.SuperVisor)
+            {
+                <option value="@emp.SSN" selected>@(@emp.FirstName + " " + @emp.MiddleName + " " + @emp.LastName)</option>
+            }
+            else
+            {
+                <option value="@emp.SSN">@(@emp.FirstName + " " + @emp.MiddleName + " " + @emp.LastName)</option>
+            }
+           
+        }
+    </select>
+
+    <input type="submit" value="Edit" />
+</form>
